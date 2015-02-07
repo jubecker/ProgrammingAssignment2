@@ -31,11 +31,11 @@ makeCacheMatrix <- function(x = matrix()) {
 
 ## The function computes the inverse of a 'cached matrix' and caches the result.
 ## Calling the function a second time will return the precomputed result.
-cacheSolve <- function(x) {
+cacheSolve <- function(xi, ...) {
     inv <- x$getInv()
     if(is.null(inv)) {
         message("computing the inverse")
-        inv <- solve(x$get())
+        inv <- solve(x$get(), ...)
         x$setInv(inv)
     }
     inv
